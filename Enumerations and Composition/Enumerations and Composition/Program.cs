@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Enumerations_and_Composition.Entities;
+using Enumerations_and_Composition.Entities.Enums;
+using System;
 using System.Globalization;
+
 
 namespace EnumerationsandComposition
 {
@@ -7,7 +10,21 @@ namespace EnumerationsandComposition
     {
         static void Main(string[] args)
         {
+            Order order = new Order
+            {
+                Id = 1080,
+                Moment = DateTime.Now,
+                Status = OrderStatus.PendingPayment
+            };
+            Console.WriteLine(order);
 
+            string txt = OrderStatus.PendingPayment.ToString();
+
+            OrderStatus os = Enum.Parse<OrderStatus>("Delivered");
+
+            Console.WriteLine(os);
+
+            Console.WriteLine(txt);
         }
     }
 }
